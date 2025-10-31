@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JANUS | TO-DO LIST</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <!-- HEADER -->
+    <header>
+    <h1>JANUS</h1>
+    <nav>
+      <ul>
+        <li><a href="todo.html">TO-DO</a></li>
+        <li><a href="notes.html">NOTES</a></li>
+        <li><a href="reminders.html">REMINDERS</a></li>
+        <li><a href="calendar.html">CALENDAR</a></li>
+        <li><a href="tracker.html">TIME TRACKER</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN SECTION -->
+    <main>
+        <section class="todo-container">
+            <h2>TO-DO LIST</h2>
+            <form id="todo-form">
+                <input
+                    type="text"
+                    id="todo-input"
+                    placeholder="Add a task..."
+                    required>
+                    <button type="submit">Add</button>
+            </form>
+
+            <ul id="todo-list"></ul>
+        </section>
+    </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 JANUS | All rights reserved</p> 
+  </footer>
+
+  <!-- SCRIPT -->
+<script src="todo.js"></script>
+</body>
+</html>

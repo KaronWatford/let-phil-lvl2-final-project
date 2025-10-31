@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JANUS | CALENDAR</title>
+<link rel="stylesheet" href="style.css">
+<body>
+    <header>
+        <h1>JANUS</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="todo.html">TO-DO</a></li>
+                <li><a href="notes.html">NOTES</a></li>
+                <li><a href="reminders.html">REMINDERS</a></li>
+                <li><a href="calendar.html" class="active">CALENDAR</a></li>
+                <li><a href="tracker.html">TIME TRACKER</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="calendar-container">
+            <h2>CALENDAR</h2>
+
+            <div class="calendar-header">
+                <button id="prev-month">‹</button>
+                <h3 id="month-year"></h3>
+                <button id="next-month">›</button>
+            </div>
+            
+<div class="calendar-grid" id="calendar-grid"></div>        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 JANUS | All rights reserved</p>
+    </footer>
+    
+<script src="calendar.js"></script>
+</body>
+</html>
