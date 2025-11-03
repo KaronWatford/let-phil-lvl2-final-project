@@ -46,13 +46,69 @@ nav a {
     border-bottom: 1px solid #c0a060;
 }
 
+.intro {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem;
+} 
+
+.intro h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #e0dfdb;
+}
+
+.intro p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #e0dfdb;
+}
+
+#daily-quote {
+    background-color: #151515;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0;
+}
+
+#daily-quote.visible {
+    opacity: 1;
+}
+
+#daily-quote:hover {
+    transform: translateY(-4x);
+    box-shadow: 0 0 30px rgba(192, 160, 96, 0.15);
+}
+
+#daily-quote h3 {
+    color: #e0dfdb;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+#daily-quote p {
+    color: #e0dfdb;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.8;
+}
+
 main {
     flex: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 2rem;
+    gap: 2rem; /* spacing between intro and quote */
 }
 
 footer {
@@ -261,4 +317,65 @@ font-size: 1.2rem;
 
 .timer-buttons button:hover {
     background-color: #e0dfdb;
+}
+
+/* ===== CONTACT FORM ===== */
+#contact {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+#contact h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: #e0dfdb;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    resize: none;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: #c0a060;
+}
+
+#contact-form button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #c0a060;
+    color: #0e0e0e;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#contact-form button:hover {
+    background-color: #a58850;
+}
+
+#form-status {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-style: italic;
 }

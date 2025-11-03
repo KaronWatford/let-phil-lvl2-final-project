@@ -1,52 +1,57 @@
-const form = document.getElementById('reminder-form;');
-const textInput = document.getElementById('reminder-text');
-const timeInput = document.getElementById('reminder-time');
-const remindersList = document.getElementById('reminder-list');
+// ===== REMINDERS JS =====
 
+// Grab the elements from the DOM
+const form = document.getElementById('reminder-form');   // The form element
+const textInput = document.getElementById('reminder-text'); // Input for reminder text
+const timeInput = document.getElementById('reminder-time'); // Input for reminder time
+const remindersList = document.getElementById('reminder-list'); // The <ul> that will hold reminders
+
+// Load saved reminders from localStorage, or start with empty array
 let reminders = JSON.parse(localStorage.getItem('reminders')) || [];
 
-function renderReminders () {
-    remindersList.innerHTML = '';
-    reminders.forEach (reminders, index => {
-        const li = document.createElement('li');
-        li.textContent = `${reminders.text} @ ${reminders.time}`;
+// Function to render all reminders in the list
+function renderReminders() {
+    remindersList.innerHTML = ''; // Clear current list
 
+    reminders.forEach((reminder, index) => {
+        const li = document.createElement('li'); // Create list item
+        li.textContent = `${reminder.text} @ ${reminder.time}`; // Show text and time
+
+        // Create delete button for each reminder
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'x';
         deleteBtn.addEventListener('click', () => {
-           reminders.splice(index,1);
-            updateStorage();
-        })
-        
-        li.appendChild(deleteBtn);
-        reminderList.appendChild(li);
+            // Remove the reminder from the array
+            reminders.splice(index, 1);
+            updateStorage(); // Save changes and re-render
+        });
 
-        // Set up notification if time is in the future
-        const [hours, minutes] =  reminders.time.split(':');
-          const now =  new Date();
-          const alertTime =  new Date();
-          alertTime.setHours(hours, minutes, 0, 0);
-          
-          if (alertTime > now) {
-            const timeout =  alertTime - now;
-            setTimeout(() => alert= (`Reminder: ${reminders.text}`), timeout);
-        } 
-    }); 
+        li.appendChild(deleteBtn); // Attach delete button to li
+        remindersList.appendChild(li); // Add li to the ul
+    });
 }
 
-function updateStorage () {
-    localStoragesetItem('reminders', JSON.stringify(reminders));
+// Function to update localStorage and refresh the display
+function updateStorage() {
+    localStorage.setItem('reminders', JSON.stringify(reminders));
     renderReminders();
 }
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    reminders.push({
-        text: textInput.value.trim(),
-        time: timeInput.value });
-        textInput.value = '';
-        timeInput.value = '';
-        updateStorage();
-    });
+// Handle adding a new reminder when form is submitted
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent form from reloading the page
 
-    renderReminders(); 
+    const text = textInput.value.trim(); 
+    const time = timeInput.value; 
+ 
+    if (text === '' || time === '') return;
+ 
+    reminders.push({ text, time });
+ 
+    updateStorage();
+ 
+    form.reset();
+});
+
+// Render reminders when the page loads
+renderReminders();

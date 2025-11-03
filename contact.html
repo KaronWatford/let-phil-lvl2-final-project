@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JANUS | TO-DO LIST</title>
-<link rel="stylesheet" href="style.css">
+    <title>JANUS | CONTACT</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <!-- HEADER -->
     <header>
-    <h1>JANUS</h1>
+    <h1>CONTACT FORM</h1>
     <nav>
       <ul>
         <li><a href="index.html">HOME</a></li>
@@ -23,29 +22,25 @@
     </nav>
   </header>
 
-  <!-- MAIN SECTION -->
-    <main>
-        <section class="todo-container">
-            <h2>TO-DO LIST</h2>
-            <form id="todo-form">
-                <input
-                    type="text"
-                    id="todo-input"
-                    placeholder="Add a task..."
-                    required>
-                    <button type="submit">Add</button>
-            </form>
+  <main>
 
-            <ul id="todo-list"></ul>
+    <section id="contact">
+        <h3>CONTACT FORM</h3>
+        <form id="contact-form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="Submit">Send</button>
+        </form>
+        <p id="form-status"></p>
         </section>
-    </main>
 
-  <!-- FOOTER -->
+  </main>
+
   <footer>
     <p>&copy; 2025 JANUS | All rights reserved</p> 
   </footer>
 
-  <!-- SCRIPT -->
-<script src="todo.js"></script>
+  <script src="contact.js"></script>
 </body>
 </html>
